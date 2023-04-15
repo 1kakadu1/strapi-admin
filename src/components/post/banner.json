@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_post_banners",
+  "info": {
+    "displayName": "Banner"
+  },
+  "options": {},
+  "attributes": {
+    "banner_title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "banner_description": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "banner_preview": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
