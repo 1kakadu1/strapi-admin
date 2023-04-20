@@ -20,6 +20,11 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.meta"
+    },
+    "Posts": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layouts.layouts"
     }
   }
 }

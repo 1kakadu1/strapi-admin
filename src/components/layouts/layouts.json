@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_layouts_layouts",
+  "info": {
+    "displayName": "posts",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post"
+    }
+  }
+}
