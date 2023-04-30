@@ -27,13 +27,7 @@
       "type": "boolean",
       "default": false
     },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category",
-      "mappedBy": "post"
-    },
-    "Slug": {
+    "slug": {
       "type": "uid"
     },
     "content": {
@@ -59,6 +53,18 @@
       "repeatable": false,
       "component": "post.banner",
       "required": true
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "post"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "posts"
     }
   }
 }

@@ -21,7 +21,7 @@
       "repeatable": false,
       "component": "seo.meta"
     },
-    "Posts": {
+    "posts": {
       "type": "component",
       "repeatable": false,
       "component": "layouts.layouts"

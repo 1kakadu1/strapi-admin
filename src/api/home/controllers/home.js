@@ -6,6 +6,7 @@
 
 const { createCoreController } = require('@strapi/strapi').factories;
 const { transformImage } = require("../../../utils/image.utils");
+const { transformCategories } = require("../../../utils/post.utils");
 
 module.exports = createCoreController('api::home.home'
     , ({ strapi }) => ({
@@ -15,23 +16,36 @@ module.exports = createCoreController('api::home.home'
                 populate: {
                     ...query,
                     seo: true,
-                    Posts: {
+                    posts: {
                         populate: {
                             posts: {
-                                populate: ['preview'],
+                                populate: {
+                                    preview: true,
+                                    tags:{
+                                        select: ['id', 'name', 'type', 'is_aside']
+                                    },
+                                    categories:{
+                                        populate:{
+                                            image: true,
+                                            select: ['id', 'name', 'is_aside']
+                                        }
+                                        
+                                    }
+                                },
+ 
                             }
                         },
-                    }
+                    },
                 }
             });
 
             delete entity.seo.id;
 
-            const postsObj = JSON.parse(JSON.stringify(entity.Posts));
+            const postsObj = JSON.parse(JSON.stringify(entity.posts));
             const posts = [...postsObj.posts];
-            delete entity.Posts;
             for(let i = 0; i < posts.length; i++){
                 posts[i].preview = transformImage(posts[i].preview);
+                posts[i].categories = transformCategories(posts[i].categories);
             }
             entity.posts = posts;
 

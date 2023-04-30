@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "Preview": {
+    "image": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -24,14 +24,18 @@
         "images"
       ]
     },
-    "Description": {
+    "description": {
       "type": "text"
     },
-    "post": {
+    "posts": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::post.post",
-      "inversedBy": "categories"
+      "mappedBy": "categories"
+    },
+    "is_aside": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
