@@ -11,8 +11,8 @@ module.exports = createCoreController('api::category.category', ({ strapi }) => 
     async find(ctx) {
         const { query } = ctx;
         const { results, pagination } = await strapi.service('api::category.category').find({
+            ...query,
             populate:{
-                ...query,
                 image: true,
             }
         });

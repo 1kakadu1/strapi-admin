@@ -1,8 +1,8 @@
 function transformImage(image){
     const imageF = image.formats
     return {
-        thumbnail: imageF.thumbnail.url,
-        small: imageF.small.url
+        thumbnail: process.env.ASSETS_PATH+imageF.thumbnail.url,
+        small: process.env.ASSETS_PATH+imageF.small.url
     }
 } 
 
