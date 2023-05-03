@@ -21,7 +21,10 @@ module.exports = createCoreController('api::category.category', ({ strapi }) => 
         const response = this.transformResponse(sanitizedResults, { pagination });
         const data = [...response.data];
         for(let i=0; i < data.length; i++){
-            data[i] = data[i].attributes;
+            const attributes = {...data[i].attributes};
+            const id = data[i].id;
+            data[i] = attributes;
+            data[i].id = id;
             data[i].image = data[i].image.data.attributes;
             delete data[i].attributes;
         }

@@ -22,7 +22,7 @@ module.exports = createCoreController('api::home.home'
                                 populate: {
                                     preview: true,
                                     tags:{
-                                        select: ['id', 'name', 'type', 'is_aside']
+                                        select: ['id', 'name', 'type', 'is_aside', 'slug']
                                     },
                                     categories:{
                                         populate:{
