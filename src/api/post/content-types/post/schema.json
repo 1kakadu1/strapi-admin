@@ -23,10 +23,6 @@
       "maxLength": 150,
       "minLength": 6
     },
-    "isHomeSlider": {
-      "type": "boolean",
-      "default": false
-    },
     "slug": {
       "type": "uid"
     },
