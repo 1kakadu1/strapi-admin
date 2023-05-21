@@ -44,7 +44,7 @@ module.exports = createCoreController('api::home.home'
             const postsObj = JSON.parse(JSON.stringify(entity.posts));
             const posts = [...postsObj.posts];
             for(let i = 0; i < posts.length; i++){
-                posts[i].preview = transformImage(posts[i].preview);
+                posts[i].preview = transformImage(posts[i].preview, posts[i].id);
                 posts[i].categories = transformCategories(posts[i].categories);
             }
             entity.posts = posts;
